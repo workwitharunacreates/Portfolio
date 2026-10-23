@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARUNA. — Creative Portfolio</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:70px
+}
+
+body{
+    background:#0d0d0d;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden
+}
+
+:root{
+    --orange:#ff6b00;
+    --card:#141414;
+    --border:rgba(255,255,255,.08);
+    --muted:#a5a5a5
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:68px;
+    padding:0 5.2vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(13,13,13,.97);
+    border-bottom:1px solid var(--border);
+    z-index:1000
+}
+
+.nav-logo{
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:4px
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+    list-style:none
+}
+
+.nav-links a{
+    position:relative;
+    color:#bdbdbd;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1px;
+    padding-bottom:7px
+}
+
+.nav-links a:hover,
+.nav-links a.active{color:#fff}
+
+.nav-links a.active:after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:2px;
+    background:var(--orange)
+}
+
+.nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer
+}
+
+.nav-toggle span{
+    width:25px;
+    height:2px;
+    background:#fff
+}
+
+/* GENERAL */
+section{padding:105px 8vw}
+
+.section-divider{    height:1px;
+    margin:0 5vw;
+    background:var(--border)
+}
+
+.heading-wrap{width:fit-content}
+
+.section-heading{
+    width:fit-content;
+    font-size:clamp(42px,5vw,68px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:1px
+}
+
+.orange-line{
+    width:100%;
+    height:4px;
+    margin-top:10px;
+    background:var(--orange);
+    border-radius:20px
+}
+
+.section-intro{
+    max-width:1000px;
+    margin-top:20px;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.8
+}
+
+/* HOME */
+#home{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    text-align:center
+}
+
+.hero-inner{max-width:1050px}
+
+.hero-greeting{
+    display:block;
+    margin-bottom:15px;
+    font-size:clamp(45px,7vw,90px);
+    font-weight:800
+}
+
+.hero-role-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:25px
+}
+
+.hero-prefix,
+.hero-role,
+.cursor{
+    font-size:clamp(30px,4vw,55px);
+    font-weight:800
+}
+
+.hero-role,.cursor{color:var(--orange)}
+
+.cursor{animation:blink .8s infinite}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.hero-desc{
+    max-width:760px;
+    margin:0 auto 35px;
+    color:#a9a9a9;
+    font-size:16px;
+    line-height:1.8
+}
+
+.hero-ctas{
+    display:flex;
+    justify-content:center;
+    gap:18px
+}
+
+.btn-primary,
+.btn-secondary{
+    padding:14px 30px;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    border-radius:4px;
+    transition:.25s
+}
+
+.btn-primary{
+    background:var(--orange);    color:#000
+}
+
+.btn-secondary{
+    color:var(--orange);
+    border:1px solid var(--orange)
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    transform:translateY(-2px)
+}
+
+.btn-secondary:hover{
+    background:var(--orange);
+    color:#000
+}
+
+.scroll-indicator{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px
+}
+
+.scroll-indicator span{
+    color:#777;
+    font-size:10px;
+    letter-spacing:2px
+}
+
+.scroll-arrow{
+    width:12px;
+    height:12px;
+    border-right:2px solid var(--orange);
+    border-bottom:2px solid var(--orange);
+    transform:rotate(45deg);
+    animation:bounce 1.5s infinite
+}
+
+@keyframes bounce{
+    50%{transform:rotate(45deg) translate(4px,4px)}
+}
+
+/* ABOUT */
+#about{min-height:100vh}
+
+.about-card{
+    width:100%;
+    margin-top:42px;
+    padding:42px;
+    background:#141414;
+    border:1px solid var(--border);
+    border-radius:8px
+}
+
+.about-card p{
+    color:#a7a7a7;
+    font-size:16px;
+    line-height:1.9
+}
+
+.about-card p+p{margin-top:20px}
+
+/* SKILLS */
+#skills{
+    padding-top:70px;
+    padding-bottom:80px
+}
+
+.skills-cards{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+    margin-top:28px;
+    align-items:stretch
+}
+
+.skill-card{
+    width:100%;
+    min-height:420px;
+    padding:26px 22px;
+    background:#141414;
+    border:1px solid var(--border);
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    transition:.25s
+}
+
+.skill-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,107,0,.7)
+}.card-title-wrap{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:26px
+}
+
+.card-icon{
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1.5px solid var(--orange);
+    border-radius:50%;
+    color:var(--orange);
+    font-size:15px
+}
+
+.card-title{
+    color:#fff;
+    font-size:19px;
+    font-weight:800
+}
+
+.skill-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px
+}
+
+.skill-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:7px;
+    color:#a5a5a5;
+    font-size:13px;
+    line-height:1.45
+}
+
+.skill-arrow{
+    flex-shrink:0;
+    color:var(--orange)
+}
+
+/* TOOLS */
+.tools-section{
+    padding:55px 8vw 80px
+}
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:30px
+}
+
+.tools-group{
+    padding:25px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px
+}
+
+.tools-title{
+    margin-bottom:17px;
+    color:var(--orange);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px
+}
+
+.tool-items{
+    display:flex;
+    flex-direction:column;
+    gap:9px
+}
+
+.tool-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:11px;
+    color:#bbb;
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--border);
+    border-radius:5px
+}
+
+.tool-dot{
+    width:6px;
+    height:6px;
+    flex-shrink:0;
+    background:var(--orange);
+    border-radius:50%
+}
+
+/* SERVICES */#services{
+    padding-top:90px;
+    padding-bottom:100px
+}
+
+.services-wrap{
+    margin-top:38px;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:18px;
+    align-items:start
+}
+
+.service-block{
+    width:100%;
+    background:#141414;
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    transition:border-color .25s
+}
+
+.service-block:hover,
+.service-block.open{
+    border-color:rgba(255,107,0,.55)
+}
+
+.service-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:21px 20px;
+    background:transparent;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    text-align:left
+}
+
+.service-left{
+    display:flex;
+    align-items:center;
+    gap:14px
+}
+
+.service-number{
+    color:var(--orange);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px
+}
+
+.service-name{
+    color:#fff;
+    font-size:15px;
+    font-weight:700
+}
+
+.service-arrow{
+    color:var(--orange);
+    font-size:21px;
+    transition:.25s
+}
+
+.service-block.open .service-arrow{
+    transform:rotate(45deg)
+}
+
+.service-content{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .35s ease
+}
+
+.service-block.open .service-content{
+    grid-template-rows:1fr
+}
+
+.service-content-inner{
+    min-height:0;
+    overflow:hidden
+}
+
+.service-categories{
+    display:flex;
+    flex-direction:column;
+    padding:0 15px 15px
+}
+
+.service-category{
+    width:100%;
+    border-top:1px solid rgba(255,255,255,.055)
+}
+
+.service-category:first-child{border-top:none}
+
+.category-trigger{
+    width:100%;
+    display:flex;    align-items:center;
+    justify-content:space-between;
+    padding:13px 8px;
+    background:transparent;
+    border:none;
+    color:#c9c9c9;
+    cursor:pointer;
+    text-align:left
+}
+
+.category-trigger:hover{
+    color:#fff;
+    background:rgba(255,255,255,.02)
+}
+
+.category-name{
+    font-size:12px;
+    font-weight:500;
+    line-height:1.45
+}
+
+.category-arrow{
+    flex-shrink:0;
+    margin-left:10px;
+    color:var(--orange);
+    font-size:17px;
+    transition:.25s
+}
+
+.service-category.open .category-arrow{
+    transform:rotate(45deg)
+}
+
+.category-content{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .3s ease
+}
+
+.service-category.open .category-content{
+    grid-template-rows:1fr
+}
+
+.category-content-inner{
+    min-height:0;
+    overflow:hidden
+}
+
+.sub-services{
+    display:flex;
+    flex-direction:column;
+    padding:0 8px 12px 23px
+}
+
+.sub-service{
+    padding:7px 0;
+    color:#8f8f8f;
+    font-size:11px;
+    line-height:1.5
+}
+
+.sub-service:before{
+    content:"→";
+    color:var(--orange);
+    margin-right:8px
+}
+
+/* PROJECTS BASE */
+#projects{
+    padding-top:90px;
+    padding-bottom:100px
+}
+
+.project-groups{
+    display:flex;
+    flex-direction:column;
+    gap:55px;
+    margin-top:38px
+}
+
+.project-group-title{
+    margin-bottom:25px;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:1px
+}
+
+/* GRAPHIC PROJECTS */
+.graphic-category{
+    width:100%;
+    margin-bottom:42px
+}
+
+.graphic-category:last-child{
+    margin-bottom:0
+}
+
+.graphic-category h4{
+    margin-bottom:15px;
+    color:#fff;    font-size:13px;
+    font-weight:700
+}
+
+.graphic-projects{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px
+}
+
+.graphic-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+
+
+/* .graphic-placeholder{
+    width:100%;
+    aspect-ratio:4/5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#181818;
+    color:#555;
+    font-size:10px;
+    overflow:hidden */
+
+/* =========================
+   VIDEO PROJECTS
+========================= */
+
+.video-project-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+    align-items:start
+}
+
+/* .sound-btn {
+    color: #fff;
+    filter: grayscale(100%);
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+} 
+
+
+.sound-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 5;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sound-icon {
+    display: block;
+    stroke: #fff;
+} */
+
+.video-placeholder {
+    position: relative;
+}
+
+.sound-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.video-project-card{
+    width:100%;
+    overflow:hidden;
+    background:transparent
+}
+
+.video-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* .video-placeholder{
+    width:100%;
+    aspect-ratio:16/9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#181818;
+    color:#555;
+    font-size:10px;
+    overflow:hidden
+}
+*/
+.video-project-card h4{
+    margin-top:10px;
+    color:#d0d0d0;
+    font-size:12px;
+    font-weight:600
+}
+
+.video-work-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))
+}
+
+
+/* =========================
+   PHOTO PROJECTS
+========================= */
+
+.photo-work-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:35px 20px
+}
+
+.photo-work-card{
+    width:100%;
+    background:transparent
+}
+
+.photo-work-card h4{
+    margin-bottom:12px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700
+}
+
+.photo-before-after{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px
+}
+
+.photo-placeholder{
+    width:100%;
+    aspect-ratio:16/9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#181818;    color:#555;
+    font-size:10px;
+    text-align:center;
+    overflow:hidden
+}
+
+.photo-placeholder small{
+    font-size:8px
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact{
+    padding-top:90px;
+    padding-bottom:100px;
+    min-height:80vh
+}
+
+.contact-text{
+    max-width:100%;
+    margin-top:25px;
+    color:#a5a5a5;
+    font-size:16px;
+    line-height:1.8;
+    color: var(--text-muted);
+}
+
+.contact-boxes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:35px
+}
+
+.contact-box{
+    padding:22px;
+    background:#141414;
+    border:1px solid var(--border);
+    border-radius:7px;
+    text-decoration:none;
+    transition:.25s
+}
+
+.contact-box:hover{
+    border-color:var(--orange);
+    transform:translateY(-2px)
+}
+
+.contact-label{
+    display:block;
+    margin-bottom:8px;
+    color:var(--orange);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px
+}
+
+.contact-value{
+    color:#ccc;
+    font-size:13px;
+    word-break:break-word
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:25px 5vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-top:1px solid var(--border)
+}
+
+.footer-logo{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px
+}
+
+.footer-copy{
+    color:#666;
+    font-size:10px
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .graphic-projects{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+    }
+}
+
+
+@media(max-width:900px){
+
+    .nav-links{
+        position:absolute;
+        top:68px;
+        right:0;
+        width:100%;
+        padding:25px 8vw;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+        background:#0d0d0d;
+        border-bottom:1px solid var(--border)
+    }
+
+    .nav-links.open{
+        display:flex
+    }
+
+    .nav-toggle{
+        display:flex
+    }
+
+    section{
+        padding-left:7vw;
+        padding-right:7vw
+    }
+
+    .skills-cards{
+        grid-template-columns:1fr
+    }
+
+    .tools-grid{
+        grid-template-columns:1fr
+    }
+
+    .services-wrap{
+        grid-template-columns:1fr
+    }
+
+    .video-project-grid{
+        grid-template-columns:1fr
+    }
+
+    .video-work-grid{
+        grid-template-columns:1fr
+    }
+
+    .photo-work-grid{
+        grid-template-columns:1fr
+    }
+
+    .contact-boxes{
+        grid-template-columns:1fr
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .graphic-projects{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:8px
+    }
+
+    .graphic-category h4{
+        font-size:12px
+    }
+
+    .hero-ctas{
+        flex-direction:column;
+        width:min(280px,100%);
+        margin:auto
+    }
+
+    .about-card{
+        padding:25px
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .graphic-projects{
+        grid-template-columns:            repeat(3,minmax(0,1fr));
+
+        gap:5px
+    }
+
+    .graphic-placeholder{
+        font-size:8px
+    }
+
+}
+
+
+/* =========================
+   END RESPONSIVE
+========================= */
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="#home" class="nav-logo">
+        ARUNA.
+    </a>
+
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home" class="nav-link active">
+                HOME
+            </a>
+        </li>
+
+        <li>
+            <a href="#about" class="nav-link">
+                ABOUT
+            </a>
+        </li>
+
+        <li>
+            <a href="#skills" class="nav-link">
+                SKILLS
+            </a>
+        </li>
+
+        <li>
+            <a href="#services" class="nav-link">
+                SERVICES
+            </a>
+        </li>
+
+        <li>
+            <a href="#projects" class="nav-link">
+                PROJECTS
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact" class="nav-link">
+                CONTACT
+            </a>
+        </li>
+
+    </ul>
+
+
+    <div class="nav-toggle" id="navToggle">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home">
+
+    <div class="hero-inner">
+
+        <span
+            class="hero-greeting"
+            id="greetingLine"        >
+            Hello, I'm Aruna.
+        </span>
+
+
+        <div class="hero-role-wrap">
+
+            <span class="hero-prefix">
+                I'm a
+            </span>
+
+            <span
+                class="hero-role"
+                id="heroRole"
+            ></span>
+
+            <span class="cursor">
+                |
+            </span>
+
+        </div>
+
+
+        <p class="hero-desc">
+
+            I create posters, social media content,
+            videos, motion graphics, and visual
+            experiences that help brands communicate
+            with impact.
+
+        </p>
+
+
+        <div class="hero-ctas">
+
+            <a
+                href="#projects"
+                class="btn-primary"
+            >
+                VIEW MY WORK
+            </a>
+
+
+            <a
+                href="#contact"
+                class="btn-secondary"
+            >
+                LET'S WORK TOGETHER
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-indicator">
+
+        <span>
+            SCROLL
+        </span>
+
+        <div class="scroll-arrow"></div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            ABOUT
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+
+
+    <div class="about-card">
+
+        <p>
+            I'm Aruna, a creative designer and
+            editor focused on turning ideas into
+            clean, engaging, and meaningful
+            visual content.
+        </p>
+
+
+        <p>
+            My work covers graphic design,            video editing, motion graphics,
+            photo editing, and creative content.
+            I enjoy experimenting with visuals,
+            learning new techniques, and creating
+            work that feels both aesthetic
+            and purposeful.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            SKILLS
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+
+
+    <p class="section-intro">
+
+        A focused set of creative skills across
+        graphic design, video editing, and
+        photo editing.
+
+    </p>
+
+
+    <div class="skills-cards">
+
+
+        <!-- GRAPHIC DESIGN -->
+
+        <div class="skill-card">
+
+            <div class="card-title-wrap">
+
+                <div class="card-icon">
+                    GD
+                </div>
+
+                <h3 class="card-title">
+                    Graphic Designing
+                </h3>
+
+            </div>
+
+
+            <ul class="skill-list">
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Food &amp; Beverage Design
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Print &amp; Stationery Design
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Event &amp; Entertainment Design
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Product &amp; Brand Identity
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Advertising &amp; Promotional Design
+                    </span>
+                </li>
+
+                <li>                    <span class="skill-arrow">→</span>
+                    <span>
+                        Social Media &amp; Digital Design
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        + More Creative Services
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- VIDEO EDITING -->
+
+        <div class="skill-card">
+
+            <div class="card-title-wrap">
+
+                <div class="card-icon">
+                    VE
+                </div>
+
+                <h3 class="card-title">
+                    Video Editing
+                </h3>
+
+            </div>
+
+
+            <ul class="skill-list">
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Cinematic Video Editing
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Social Media Reels
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Speed Ramping &amp; Time Remapping
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Smooth Transitions
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Motion Blur
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Masking &amp; Rotoscoping
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Object Removal
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Text &amp; Motion Animation
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Beat Sync &amp; Music Editing
+                    </span>
+                </li>                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Sound Design &amp; Audio Mixing
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        + More Creative Services
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- PHOTO EDITING -->
+
+        <div class="skill-card">
+
+            <div class="card-title-wrap">
+
+                <div class="card-icon">
+                    PE
+                </div>
+
+                <h3 class="card-title">
+                    Photo Editing
+                </h3>
+
+            </div>
+
+
+            <ul class="skill-list">
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Portrait Retouching
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Color Correction &amp; Enhancement
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Background Removal &amp; Replacement
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Photo Manipulation &amp;
+                        Creative Compositing
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Product &amp; Commercial
+                        Photo Editing
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        Social Media Photo Enhancement
+                    </span>
+                </li>
+
+                <li>
+                    <span class="skill-arrow">→</span>
+                    <span>
+                        + More Creative Services
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+<!-- =========================
+     TOOLS
+========================= -->
+
+<section class="tools-section">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            TOOLS
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+
+        <div class="tools-group">
+
+            <div class="tools-title">
+                DESIGN
+            </div>
+
+
+            <div class="tool-items">
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Adobe Photoshop
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Adobe Illustrator
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Canva
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Figma
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="tools-group">
+
+            <div class="tools-title">
+                VIDEO
+            </div>
+
+
+            <div class="tool-items">
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Adobe Premiere Pro
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    Adobe After Effects
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    DaVinci Resolve
+                </div>
+
+                <div class="tool-item">
+                    <span class="tool-dot"></span>
+                    CapCut
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+<!-- =========================
+     SERVICES
+========================= -->
+<section id="services">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            SERVICES
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+
+    <p class="section-intro">
+        Creative services designed for brands,
+        businesses, creators, events, and social media.
+    </p>
+
+
+    <div class="services-wrap">
+
+
+        <!-- =====================
+             GRAPHIC DESIGN
+        ====================== -->
+
+        <div class="service-block open">
+
+            <button class="service-trigger" type="button">
+
+                <span class="service-left">
+
+                    <span class="service-number">01</span>
+
+                    <span class="service-name">
+                        Graphic Design
+                    </span>
+
+                </span>
+
+                <span class="service-arrow">+</span>
+
+            </button>
+
+
+            <div class="service-content">
+
+                <div class="service-content-inner">
+
+                    <div class="service-categories">
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Food &amp; Beverage
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Food Posters
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Promotional Offers
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Café / Restaurant Social Media Designs
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Print &amp; Stationery
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+                                                        </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Book Covers
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Restaurant Menu
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Greeting Cards
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Visiting Card
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Marketing &amp; Advertising
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Flyers
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Brochures
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Posters / Banners
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Promotional Campaign Designs
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Events
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Invitations
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Certificates                                        </div>
+
+                                        <div class="sub-service">
+                                            College Events
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Event Social Media Creatives
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Social Media
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Instagram Posts
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Instagram Stories
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Social Media Campaign Creatives
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Promotional Posts
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Branding
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Logo Design
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Brand Identity
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Business Cards
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Packaging Design
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Stationery Design
+                                        </div>                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Other
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Presentation Design
+                                        </div>
+
+                                        <div class="sub-service">
+                                            YouTube Thumbnails
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Wedding Related
+                                        </div>
+
+                                        <div class="sub-service">
+                                            College Work Related (PDF, PPTs, ...)
+                                        </div>
+
+                                        <div class="sub-service">
+                                            + More Creative Services
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             VIDEO EDITING
+        ====================== -->
+
+        <div class="service-block open">
+
+            <button class="service-trigger" type="button">
+
+                <span class="service-left">
+
+                    <span class="service-number">02</span>
+
+                    <span class="service-name">
+                        Video Editing
+                    </span>
+
+                </span>
+
+                <span class="service-arrow">+</span>
+
+            </button>
+
+
+            <div class="service-content">
+
+                <div class="service-content-inner">
+
+                    <div class="service-categories">
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">                                    Social Media
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Instagram Reels
+                                        </div>
+
+                                        <div class="sub-service">
+                                            TikTok Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            YouTube Shorts
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Social Media Advertisements
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Promotional Reels
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    YouTube
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            YouTube Video Editing
+                                        </div>
+
+                                        <div class="sub-service">
+                                            YouTube Shorts
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Talking-Head Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Educational Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Vlogs
+                                        </div>
+
+                                        <div class="sub-service">
+                                            YouTube Podcast Editing
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Business &amp; Marketing
+                                </span>                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Promotional Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Product Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Brand Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Corporate Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Social Media Ads
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Video Advertisements
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Creative
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Cinematic Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Travel Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Music Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Montage Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Storytelling Videos
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Podcasts
+                                </span>
+
+                                <span class="category-arrow">+</span>
+                                                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Podcast Video Editing
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Podcast Shorts
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Multi-camera Editing
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Captioned Clips
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Events
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Event Highlight Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Wedding / Event Videos
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Birthday / Event Recaps
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Aftermovies
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Other
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            + More Creative Services
+                                        </div>
+
+                                    </div>                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             PHOTO EDITING
+        ====================== -->
+
+        <div class="service-block open">
+
+            <button class="service-trigger" type="button">
+
+                <span class="service-left">
+
+                    <span class="service-number">03</span>
+
+                    <span class="service-name">
+                        Photo Editing
+                    </span>
+
+                </span>
+
+                <span class="service-arrow">+</span>
+
+            </button>
+
+
+            <div class="service-content">
+
+                <div class="service-content-inner">
+
+                    <div class="service-categories">
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Portrait Retouching
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Portrait Retouching
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Skin Retouching
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Color Correction &amp; Enhancement
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">                                        <div class="sub-service">
+                                            Color Correction
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Color Enhancement
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Background Removal &amp; Replacement
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Background Removal
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Background Replacement
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Photo Manipulation &amp; Creative Compositing
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Photo Manipulation
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Creative Compositing
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-trigger" type="button">
+
+                                    <span class="category-name">
+                                        Product &amp; Commercial Photo Editing
+                                    </span>
+
+                                    <span class="category-arrow">+</span>
+
+                                </button>
+
+                                <div class="category-content">                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Product Photo Editing
+                                        </div>
+
+                                        <div class="sub-service">
+                                            Commercial Photo Editing
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    Social Media Photo Enhancement
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Social Media Photo Enhancement
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-category">
+
+                            <button class="category-trigger" type="button">
+
+                                <span class="category-name">
+                                    + More Creative Services
+                                </span>
+
+                                <span class="category-arrow">+</span>
+
+                            </button>
+
+                            <div class="category-content">
+
+                                <div class="category-content-inner">
+
+                                    <div class="sub-services">
+
+                                        <div class="sub-service">
+                                            Additional Creative Photo Services
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div><!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            PROJECTS
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+
+
+    <p class="section-intro">
+        A collection of selected creative projects
+        across graphic design and video editing.
+    </p>
+
+
+    <div class="project-groups">
+
+
+        <!-- =====================
+             GRAPHIC DESIGN
+        ====================== -->
+
+        <div class="project-group">
+
+            <div class="project-group-title">
+                GRAPHIC DESIGN
+            </div>
+
+
+            <!-- CATEGORY 01 -->
+
+            <div class="graphic-category">
+
+                <h4>
+                    Food &amp; Beverage
+                </h4>
+
+                <div class="graphic-projects">
+
+                    <div class="graphic-placeholder">
+                        DESIGN 01
+                        <img src="/images'/design1.png" alt="Ice Cream Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 02
+                        <img src="/images'/design2.jpg" alt="Orange Juice Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 03
+                        <img src="/images'/designn.jpg" alt="Burger Poster">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY 02 -->
+
+            <div class="graphic-category">
+
+                <h4>
+                  Product&nbsp;Advertising
+                </h4>
+
+                <div class="graphic-projects">
+
+                    <div class="graphic-placeholder">
+                        DESIGN 01
+                        <img src="/images'/design4.jpg" alt="Luxury Perfume Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 02
+                        <img src="/images'/design5.jpg" alt="Perfume Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 03
+                        <img src="/images'/design7.jpg.jpeg" alt="Facial Wash Poster">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY 03 -->
+
+            <div class="graphic-category">
+
+                <h4>
+                    Event &amp; Entertainment
+                </h4>
+
+                <div class="graphic-projects">                    <div class="graphic-placeholder">
+                        DESIGN 01
+                        <img src="/images'/designn3.jpeg" alt="Muisc Concert Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 02
+                        <img src="/images'/1.png" alt="College Event Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 03
+                        <img src="/images'/Journal (1).png" alt="Event Pass Poster">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY 04 -->
+
+            <div class="graphic-category">
+
+                <h4>     Print &amp; Stationery </h4>
+
+                <div class="graphic-projects">
+
+                    <div class="graphic-placeholder">
+                        DESIGN 01
+                        <img src="/images'/2.png" alt="Juice Shop Menu Poster ">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        DESIGN 02
+                        <img src="/images'/5.png" alt="Juice Shop Menu Poster">
+                    </div>
+
+                    <div class="graphic-placeholder">
+                        <img src="/images'/Journal.png" alt="Book Cover Poster">
+                         DESIGN 03
+                    </div>
+
+                </div>
+
+            </div>
+
+
+             <!-- CATEGORY 05 -->
+
+            <!--- <div class="graphic-category">
+                <h4>
+                    Advertising &amp; Promotional
+                </h4>
+                <div class="graphic-projects">
+                    <div class="graphic-placeholder">
+                        DESIGN 01
+                    </div>
+                    <div class="graphic-placeholder">
+                        DESIGN 02
+                    </div>
+                    <div class="graphic-placeholder">
+                        DESIGN 03
+                    </div>
+                </div>
+            </div>
+          </div> -->
+
+        <!-- =====================
+             VIDEO EDITING — SKILLS
+        ====================== -->
+
+        <div class="project-group">
+
+            <div class="project-group-title">
+                VIDEO EDITING — SKILLS
+            </div>
+
+            <div class="video-project-grid">
+
+                <div class="video-project-card">
+
+                    <div class="video-placeholder">
+                        SKILLS VIDEO 01
+                        <video autoplay loop muted playsinline>
+        <source src="/videos/Timeline 2.mp4" type="video/mp4">
+    </video>
+    <button class="sound-btn" onclick="toggleSound(this)">🔇</button>
+                    </div>
+
+                    <h4>
+                        Editing Skills — Part 01
+                    </h4>
+
+                </div>
+
+
+                <div class="video-project-card">                    <div class="video-placeholder">
+                        SKILLS VIDEO 02
+                        <video autoplay loop muted playsinline>
+        <source src="/videos/Timeline 10.mp4" type="video/mp4">
+    </video>
+    <button class="sound-btn" onclick="toggleSound(this)">🔇</button>
+                    </div>
+
+                    <h4>
+                        Editing Skills — Part 02
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             VIDEO EDITING — WORK
+        ====================== -->
+
+        <div class="project-group">
+
+            <div class="project-group-title">
+                VIDEO EDITING — WORK
+            </div>
+
+            <div class="video-project-grid video-work-grid">
+
+                <div class="video-project-card">
+
+                    <div class="video-placeholder">
+                        WORK 01
+                        <video autoplay loop muted playsinline>
+        <source src="/videos/kuwaitportfoliovideo222.mp4" type="video/mp4">
+    </video>
+    <button class="sound-btn" onclick="toggleSound(this)">🔇</button>
+                    </div>
+
+                    <h4>
+                        Cinematic Reel
+                    </h4>
+
+                </div>
+
+
+                <div class="video-project-card">
+
+                    <div class="video-placeholder">
+                        WORK 02
+                        <video autoplay loop muted playsinline>
+        <source src="/Portfoliovideos/Timeline 1.mp4" type="video/mp4">
+    </video>
+    <button class="sound-btn" onclick="toggleSound(this)">🔇</button>
+                    </div>
+
+                    <h4>
+                        Before & After Reel
+                    </h4>
+
+                </div>
+
+
+                <div class="video-project-card">
+
+                    <div class="video-placeholder">
+                        WORK 03
+                        <video autoplay loop muted playsinline>
+        <source src="/Portfoliovideos/WORK3.mp4" type="video/mp4">
+    </video>
+                        <button class="sound-btn" onclick="toggleSound(this)">🔇</button>
+                    </div>
+
+                    <h4>
+                        Instagram Trending Reel
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================
+             PHOTO EDITING
+        ====================== -->
+
+
+
+    </div>
+
+</section>
+
+
+<div class="section-divider"></div>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="heading-wrap">
+
+        <h2 class="section-heading">
+            CONTACT
+        </h2>
+
+        <div class="orange-line"></div>
+
+    </div>
+    <p class="contact-text">
+    Have a project in mind or looking for a creative partner for your brand?
+    I'm always open to discussing new opportunities, freelance projects,
+    and creative collaborations. Feel free to reach out through any of the
+    channels below.
+</p>
+
+<div class="contact-boxes">
+  
+
+    <!-- EMAIL -->
+<a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=workwitharunacreates@gmail.com&su=Portfolio%20Enquiry"
+    class="contact-box"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    <span class="contact-label">EMAIL</span>
+    <span class="contact-value">
+        workwitharunacreates@gmail.com
+    </span>
+</a>
+    <!-- LINKEDIN -->
+    <a
+        href="https://www.linkedin.com/in/aruna-vasabathula/"
+        class="contact-box"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="contact-label">LINKEDIN</span>
+        <span class="contact-value">Aruna</span>
+    </a>
+
+    <!-- PHONE -->
+    <a
+        href="tel:+919542718171"
+        class="contact-box"
+    >
+        <span class="contact-label">PHONE</span>
+        <span class="contact-value">+91 9542718171</span>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a
+        href="https://www.instagram.com/its_me_aruna_creates/"
+        class="contact-box"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="contact-label">INSTAGRAM</span>
+        <span class="contact-value">@its_me_aruna_creates</span>
+    </a>
+
+    <!-- YOUTUBE -->
+    <a
+        href="https://youtube.com/@its_me_aruna_creates"
+        class="contact-box"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span class="contact-label">YOUTUBE</span>
+        <span class="contact-value">@Aruna</span>
+    </a>
+
+</div>
+
+</section>    </span>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   HERO TYPING
+========================= */
+
+const roles = [
+    "Graphic Designer",
+    "Video Editor",
+    "Content Creator"
+];
+
+const heroRole =
+    document.getElementById("heroRole");
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+
+function typeRole(){
+
+    const currentRole =
+        roles[roleIndex];
+
+
+    if(!deleting){
+
+        heroRole.textContent =
+            currentRole.substring(
+                0,
+                charIndex + 1
+            );
+
+        charIndex++;
+
+
+        if(
+            charIndex ===
+            currentRole.length
+        ){
+
+            deleting = true;
+
+            setTimeout(
+                typeRole,
+                1500
+            );
+
+            return;
+
+        }
+
+    }else{
+
+        heroRole.textContent =
+            currentRole.substring(
+                0,
+                charIndex - 1
+            );
+
+        charIndex--;
+
+
+        if(charIndex === 0){
+
+            deleting = false;
+
+            roleIndex =
+                (roleIndex + 1)
+                % roles.length;
+
+        }
+
+    }
+
+
+    setTimeout(
+        typeRole,
+        deleting ? 45 : 75
+    );
+
+}
+
+
+typeRole();
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */const navToggle =
+    document.getElementById("navToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+navToggle.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-link")
+    .forEach(
+        (link) => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
+
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const navItems =
+    document.querySelectorAll(
+        ".nav-link"
+    );
+
+
+function updateActiveNav(){
+
+    let current = "home";
+
+    const scrollPosition =
+        window.scrollY +
+        window.innerHeight * 0.35;
+
+
+    sections.forEach(
+        (section) => {
+
+            if(
+                scrollPosition >=
+                section.offsetTop
+            ){
+
+                current =
+                    section.id;
+
+            }
+
+        }
+    );
+
+
+    navItems.forEach(
+        (link) => {
+
+            link.classList.toggle(
+
+                "active",
+
+                link.getAttribute(
+                    "href"
+                ) === "#" + current
+
+            );
+
+        }
+    );
+
+}window.addEventListener(
+    "scroll",
+    updateActiveNav
+);
+
+updateActiveNav();
+
+
+/* =========================
+   SERVICES
+
+
+/* =========================
+   SERVICES
+   MAIN SERVICE
+========================= */
+
+/*
+   Categories are visible by default.
+
+   Clicking the main service header
+   can still collapse/expand the
+   category list.
+*/
+
+
+
+document
+    .querySelectorAll(
+        ".service-trigger"
+    )
+    .forEach(
+        (button) => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const block =
+                        button.closest(
+                            ".service-block"
+                        );
+
+                    block.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================
+   CATEGORY
+   SUB-SERVICES
+========================= */
+
+/*
+   Categories remain visible.
+
+   Only their sub-services are
+   opened when the category
+   itself is clicked.
+*/
+
+document
+    .querySelectorAll(
+        ".category-trigger"
+    )
+    .forEach(
+        (button) => {
+
+            button.addEventListener(
+                "click",
+                (event) => {
+
+                    event.stopPropagation();
+
+
+                    const category =
+                        button.closest(
+                            ".service-category"
+                        );
+
+
+                    category.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+    
+    
+function toggleSound(button) {
+    const video = button.parentElement.querySelector("video");
+
+    video.muted = !video.muted;
+
+    button.innerHTML = video.muted
+        ? "🔇"
+        : "🔊";
+}
+
+
+
+</script>
+
+</body>
+</html>
